@@ -1,13 +1,32 @@
 import { useState, FormEvent } from "react";
 
+const BACKEND_URL = "https://functions.poehali.dev/d34adb38-45e2-40f1-9d89-f30e5c955ec8";
+
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (form.name && form.email && form.message) {
-      setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Не удалось отправить сообщение. Попробуйте ещё раз.");
+      }
+    } catch {
+      setError("Ошибка соединения. Попробуйте ещё раз.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -63,11 +82,13 @@ export function Contact() {
                 required
               />
             </div>
+            {error && <p className="text-sm text-destructive">{error}</p>}
             <button
               type="submit"
-              className="w-full py-4 bg-primary text-primary-foreground rounded-xl hover:opacity-90 transition-opacity duration-300 font-medium"
+              disabled={loading}
+              className="w-full py-4 bg-primary text-primary-foreground rounded-xl hover:opacity-90 transition-opacity duration-300 font-medium disabled:opacity-60"
             >
-              Отправить
+              {loading ? "Отправляю..." : "Отправить"}
             </button>
           </form>
         )}

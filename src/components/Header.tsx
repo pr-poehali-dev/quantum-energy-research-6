@@ -18,7 +18,6 @@ export function Header() {
           <a href="#traditions" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">Традиции</a>
           <a href="#stories" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">Истории</a>
           <a href="#calendar" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">Календарь</a>
-          <a href="#gallery" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">Галерея</a>
         </div>
 
         <a
@@ -45,7 +44,6 @@ export function Header() {
             <a href="#traditions" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">Традиции</a>
             <a href="#stories" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">Истории</a>
             <a href="#calendar" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">Календарь</a>
-            <a href="#gallery" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">Галерея</a>
             <a href="#contact" onClick={() => setIsOpen(false)} className="mt-2 px-5 py-2.5 bg-primary text-primary-foreground text-sm rounded-full text-center">
               Написать нам
             </a>

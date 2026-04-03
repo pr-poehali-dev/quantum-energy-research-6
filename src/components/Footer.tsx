@@ -13,7 +13,6 @@ export function Footer() {
             <a href="#traditions" className="hover:text-foreground transition-colors duration-300">Традиции</a>
             <a href="#stories" className="hover:text-foreground transition-colors duration-300">Истории</a>
             <a href="#calendar" className="hover:text-foreground transition-colors duration-300">Календарь</a>
-            <a href="#gallery" className="hover:text-foreground transition-colors duration-300">Галерея</a>
             <a href="#contact" className="hover:text-foreground transition-colors duration-300">Контакты</a>
           </div>
 
