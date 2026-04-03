@@ -5,7 +5,7 @@ export function About() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/5] bg-muted rounded-lg overflow-hidden">
             <img
-              src="/minimal-scandinavian-workspace-with-natural-light-.jpg"
+              src="https://cdn.poehali.dev/projects/58d633b0-32fa-4b43-a4e5-b8d42ff845da/files/3b047e72-cc24-4803-9930-ea0132cd291b.jpg"
               alt="Народы России"
               className="w-full h-full object-cover"
             />

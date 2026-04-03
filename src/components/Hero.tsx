@@ -3,12 +3,17 @@ import Icon from "@/components/ui/icon";
 export function Hero() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20 relative overflow-hidden">
-      {/* Background flag-inspired gradient */}
+      {/* Background photo */}
       <div className="absolute inset-0 pointer-events-none">
+        <img
+          src="https://cdn.poehali.dev/projects/58d633b0-32fa-4b43-a4e5-b8d42ff845da/files/3b047e72-cc24-4803-9930-ea0132cd291b.jpg"
+          alt=""
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-white" />
         <div className="absolute top-1.5 left-0 right-0 h-1.5 bg-primary" />
         <div className="absolute top-3 left-0 right-0 h-1.5 bg-[hsl(220,60%,30%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/60" />
       </div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
