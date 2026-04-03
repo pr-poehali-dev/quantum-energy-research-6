@@ -1,86 +1,56 @@
-import { Check } from "lucide-react";
-
-const plans = [
+const stories = [
   {
-    name: "Личный",
-    price: "Бесплатно",
-    description: "Для тех, кто начинает путь осознанной продуктивности",
-    features: ["Неспешное управление задачами", "Ежедневная сессия фокуса", "Еженедельные размышления", "Доступ в приложении"],
-    cta: "Начать бесплатно",
-    highlighted: false,
+    year: "1612",
+    title: "Ополчение Минина и Пожарского",
+    text: "В Смутное время представители разных народов объединились, чтобы освободить Москву от интервентов. Это стало вечным символом народного единства.",
+    emoji: "⚔️",
   },
   {
-    name: "Профи",
-    price: "990 ₽",
-    period: "/мес",
-    description: "Для тех, кто готов углубить практику",
-    features: [
-      "Всё из тарифа Личный",
-      "Безлимитные сессии фокуса",
-      "Расписание часов тишины",
-      "Мягкая аналитика",
-      "Синхронизация с календарём",
-      "Приоритетная поддержка",
-    ],
-    cta: "Начать путь",
-    highlighted: true,
+    year: "1970–1980-е",
+    title: "Дружба народов на стройке БАМа",
+    text: "Тысячи молодых людей со всей страны приехали строить Байкало-Амурскую магистраль. В суровых условиях они поддерживали друг друга и делились традициями.",
+    emoji: "🛤️",
+  },
+  {
+    year: "2012",
+    title: "Помощь после наводнения в Крымске",
+    text: "Волонтёры из разных регионов России приехали помогать пострадавшим. Они не делили людей по национальности — просто помогали.",
+    emoji: "🤝",
+  },
+  {
+    year: "Сегодня",
+    title: "Семья — мост между культурами",
+    text: "Муж — русский, жена — чеченка. Они отмечают и Масленицу, и Курбан-байрам, учат детей уважать обе традиции. Таких семей в России миллионы.",
+    emoji: "❤️",
   },
 ];
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-32 px-6">
+    <section id="stories" className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-sm uppercase tracking-widest text-amber mb-4 block">Тарифы</span>
+        <div className="text-center mb-16">
+          <span className="text-sm uppercase tracking-widest text-amber mb-4 block">Истории единства</span>
           <h2 className="font-serif text-4xl md:text-5xl tracking-tight text-foreground mb-4 text-balance">
-            Простые и честные цены
+            Когда мы вместе
           </h2>
-          <p className="text-muted-foreground text-lg">Без скрытых платежей. Отмена в любой момент.</p>
+          <p className="text-muted-foreground text-lg">Страницы истории, которые объединяют нас по сей день.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {plans.map((plan, index) => (
+        <div className="grid md:grid-cols-2 gap-8">
+          {stories.map((story, index) => (
             <div
               key={index}
-              className={`p-8 md:p-10 rounded-2xl border ${
-                plan.highlighted ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border"
-              }`}
+              className="p-8 rounded-2xl border border-border bg-card hover:border-primary/30 transition-colors duration-300"
             >
-              <h3 className={`text-xl mb-2 ${plan.highlighted ? "text-primary-foreground" : "text-foreground"}`}>
-                {plan.name}
-              </h3>
-              <div className="flex items-baseline gap-1 mb-4">
-                <span className="font-serif text-5xl tracking-tight">{plan.price}</span>
-                {plan.period && (
-                  <span className={plan.highlighted ? "text-primary-foreground/70" : "text-muted-foreground"}>
-                    {plan.period}
-                  </span>
-                )}
+              <div className="flex items-start gap-4 mb-4">
+                <span className="text-3xl">{story.emoji}</span>
+                <div>
+                  <span className="text-xs font-medium text-primary uppercase tracking-widest">{story.year}</span>
+                  <h3 className="font-serif text-xl text-foreground mt-0.5">{story.title}</h3>
+                </div>
               </div>
-              <p className={`mb-8 ${plan.highlighted ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                {plan.description}
-              </p>
-
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <Check size={18} className="text-sage" />
-                    <span className={plan.highlighted ? "text-primary-foreground/90" : "text-foreground"}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#contact"
-                className={`block w-full py-3.5 rounded-full text-center transition-opacity duration-300 hover:opacity-90 ${
-                  plan.highlighted ? "bg-primary-foreground text-primary" : "bg-primary text-primary-foreground"
-                }`}
-              >
-                {plan.cta}
-              </a>
+              <p className="text-muted-foreground leading-relaxed">{story.text}</p>
             </div>
           ))}
         </div>

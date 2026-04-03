@@ -3,37 +3,27 @@ export function Footer() {
     <footer className="py-16 px-6 border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo */}
-          <a href="#" className="font-serif text-2xl tracking-tight text-foreground">
-            Hvile
+          <a href="#" className="font-serif text-xl tracking-tight text-foreground text-center md:text-left">
+            Единство народов <span className="text-primary">России</span>
           </a>
 
-          {/* Links */}
-          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
-            <a href="#philosophy" className="hover:text-foreground transition-colors duration-300">
-              Философия
-            </a>
-            <a href="#features" className="hover:text-foreground transition-colors duration-300">
-              Возможности
-            </a>
-            <a href="#pricing" className="hover:text-foreground transition-colors duration-300">
-              Тарифы
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors duration-300">
-              Политика
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors duration-300">
-              Условия
-            </a>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+            <a href="#about" className="hover:text-foreground transition-colors duration-300">О проекте</a>
+            <a href="#peoples" className="hover:text-foreground transition-colors duration-300">Народы</a>
+            <a href="#traditions" className="hover:text-foreground transition-colors duration-300">Традиции</a>
+            <a href="#stories" className="hover:text-foreground transition-colors duration-300">Истории</a>
+            <a href="#calendar" className="hover:text-foreground transition-colors duration-300">Календарь</a>
+            <a href="#gallery" className="hover:text-foreground transition-colors duration-300">Галерея</a>
+            <a href="#contact" className="hover:text-foreground transition-colors duration-300">Контакты</a>
           </div>
 
-          {/* Copyright */}
-          <p className="text-sm text-muted-foreground">2026 Hvile. Все права защищены.</p>
+          <p className="text-sm text-muted-foreground">© 2026 Все права защищены.</p>
         </div>
 
-        {/* Large decorative logo */}
-        <div className="mt-20 text-center">
-          <span className="font-serif text-[12rem] md:text-[16rem] leading-none text-border/50 select-none">H</span>
+        <div className="mt-16 text-center">
+          <p className="font-serif text-4xl md:text-6xl text-border/50 select-none tracking-widest italic">
+            Мы разные — мы вместе!
+          </p>
         </div>
       </div>
     </footer>

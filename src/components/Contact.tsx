@@ -1,12 +1,12 @@
 import { useState, FormEvent } from "react";
 
 export function Contact() {
-  const [email, setEmail] = useState("");
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (form.name && form.email && form.message) {
       setSubmitted(true);
     }
   };
@@ -14,34 +14,60 @@ export function Contact() {
   return (
     <section id="contact" className="py-32 px-6 bg-card">
       <div className="max-w-2xl mx-auto text-center">
-        <span className="text-sm uppercase tracking-widest text-muted-foreground mb-4 block">Начните</span>
+        <span className="text-sm uppercase tracking-widest text-muted-foreground mb-4 block">Контакты</span>
         <h2 className="font-serif text-4xl md:text-5xl tracking-tight text-foreground mb-6 text-balance">
-          Готовы обрести покой?
+          Напишите нам
         </h2>
         <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
-          Присоединяйтесь к тысячам людей, открывших спокойный подход к работе. Оставьте email — мы поможем начать.
+          Хотите поделиться историей, предложить тему для статьи или задать вопрос?
+          Мы будем рады услышать вас!
         </p>
 
         {submitted ? (
-          <div className="p-8 rounded-2xl bg-sage/10 border border-sage/20">
-            <p className="text-foreground font-serif text-2xl mb-2">Добро пожаловать в Hvile</p>
-            <p className="text-muted-foreground">Проверьте почту — мы отправили следующие шаги.</p>
+          <div className="p-8 rounded-2xl bg-primary/5 border border-primary/20">
+            <p className="text-foreground font-serif text-2xl mb-2">Спасибо за обращение!</p>
+            <p className="text-muted-foreground">Мы получили ваше сообщение и скоро ответим.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="ваш@email.ru"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-6 py-4 rounded-full bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-sage/30 transition-all duration-300"
-              required
-            />
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Имя</label>
+              <input
+                type="text"
+                placeholder="Ваше имя"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full px-5 py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Email</label>
+              <input
+                type="email"
+                placeholder="ваш@email.ru"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="w-full px-5 py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Сообщение</label>
+              <textarea
+                placeholder="Ваше сообщение..."
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                rows={5}
+                className="w-full px-5 py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
+                required
+              />
+            </div>
             <button
               type="submit"
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-full hover:opacity-90 transition-opacity duration-300 whitespace-nowrap"
+              className="w-full py-4 bg-primary text-primary-foreground rounded-xl hover:opacity-90 transition-opacity duration-300 font-medium"
             >
-              Начать путь
+              Отправить
             </button>
           </form>
         )}
